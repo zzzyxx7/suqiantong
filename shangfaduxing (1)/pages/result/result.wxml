@@ -1,0 +1,117 @@
+<!-- pages/result/result.wxml -->
+<view class="result-page">
+  <!-- 顶部状态 -->
+  <view class="result-header {{result.success ? 'header-success' : 'header-fail'}}">
+    <view class="header-icon">{{result.success ? '✅' : '⚠️'}}</view>
+    <view class="header-title">{{result.message}}</view>
+    <view class="header-detail" wx:if="{{result.detail}}">{{result.detail}}</view>
+  </view>
+
+  <!-- 裁判结论（最终结果） -->
+  <view class="section" wx:if="{{result.finalResults.length > 0}}">
+    <view class="section-title-bar">
+      <view class="section-icon">📌</view>
+      <text class="section-title">裁判预测结论</text>
+    </view>
+
+    <view class="final-result-card" wx:for="{{result.finalResults}}" wx:key="item">
+      <view class="final-item-label">{{item.item}}</view>
+      <view class="final-item-result">{{item.result}}</view>
+      <view class="final-item-detail">{{item.detail}}</view>
+    </view>
+  </view>
+
+  <!-- 推理路径（激活的规则链） -->
+  <view class="section" wx:if="{{result.activatedPaths.length > 0}}">
+    <view class="section-title-bar">
+      <view class="section-icon">🔗</view>
+      <text class="section-title">推理路径</text>
+      <text class="section-subtitle">（白盒可追溯）</text>
+    </view>
+
+    <view class="path-card" wx:for="{{result.activatedPaths}}" wx:key="name">
+      <view class="path-header">
+        <view class="path-index">{{index + 1}}</view>
+        <view class="path-name">{{item.name}}</view>
+      </view>
+      <view class="path-conditions">
+        <view class="path-calc">运算方式：<text class="calc-tag">{{item.calc}}</text></view>
+        <view class="condition-list">
+          <view class="condition-item" wx:for="{{item.conditions}}" wx:for-item="cond" wx:key="*this">
+            <text class="cond-check">✓</text>
+            <text class="cond-text">{{cond}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 中间结论详情 -->
+  <view class="section" wx:if="{{result.conclusions.length > 0}}">
+    <view class="section-title-bar">
+      <view class="section-icon">⚖️</view>
+      <text class="section-title">法律适用分析</text>
+    </view>
+
+    <view class="conclusion-card {{item.level}}-card" wx:for="{{result.conclusions}}" wx:key="result">
+      <view class="conclusion-type">
+        <text class="type-badge {{item.type}}">{{typeLabels[item.type] || item.type}}</text>
+        <text class="level-badge level-{{item.level}}">{{levelLabels[item.level] || ''}}</text>
+      </view>
+      <view class="conclusion-result">{{item.result}}</view>
+      <view class="conclusion-reason">{{item.reason}}</view>
+    </view>
+  </view>
+
+  <!-- 适用法条 -->
+  <view class="section" wx:if="{{result.lawsApplied.length > 0}}">
+    <view class="section-title-bar">
+      <view class="section-icon">📖</view>
+      <text class="section-title">适用法律法规</text>
+    </view>
+
+    <view class="law-card" wx:for="{{result.lawsApplied}}" wx:key="id">
+      <view class="law-header">
+        <text class="law-name">{{item.name}}</text>
+        <text class="law-article">{{item.article}}</text>
+      </view>
+      <view class="law-summary">{{item.summary}}</view>
+      <view class="law-text-toggle" bindtap="toggleLawText" data-id="{{item.id}}">
+        {{expandedLaws[item.id] ? '收起法条原文 ▲' : '查看法条原文 ▼'}}
+      </view>
+      <view class="law-full-text" wx:if="{{expandedLaws[item.id]}}">{{item.text}}</view>
+    </view>
+  </view>
+
+  <!-- 证据指引（最小版） -->
+  <view class="section" wx:if="{{result.step2 && result.step2.targets && result.step2.targets.length > 0}}">
+    <view class="section-title-bar">
+      <view class="section-icon">🧭</view>
+      <text class="section-title">证据指引（下一步）</text>
+    </view>
+    <view class="final-result-card" wx:for="{{result.step2.targets}}" wx:key="targetId">
+      <view class="final-item-label">{{item.title}}</view>
+      <view class="final-item-detail">{{item.desc}}</view>
+    </view>
+  </view>
+
+  <!-- 免责声明 -->
+  <view class="disclaimer-section">
+    <view class="disclaimer-box">
+      <text class="disclaimer-title">⚠️ 重要提示</text>
+      <text class="disclaimer-content">本裁判预测结果由"诉前通"系统基于法律规则引擎自动生成，仅供法律学习与参考使用。实际案件判决受法官自由裁量权、证据审查、地方司法实践等多种因素影响，本结果不构成法律意见。建议您咨询专业律师或向法院咨询。</text>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-buttons">
+    <view class="action-btn action-btn-restart" bindtap="restart">
+      <text>重新评估</text>
+    </view>
+    <view class="action-btn action-btn-dissatisfied" bindtap="goToOtherResults">
+      <text>我不满这个结果</text>
+    </view>
+  </view>
+
+  <view style="height: 60rpx;"></view>
+</view>

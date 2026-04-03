@@ -1,0 +1,42 @@
+<view class="case-page">
+  <view class="hero-section">
+    <view class="hero-overlay"></view>
+    <view class="hero-content">
+      <view class="hero-icon">⚖️</view>
+      <view class="hero-title">请输入遇到的法律问题</view>
+     
+      <view class="hero-tags">
+        <text class="hero-tag">智能预测</text>
+        <text class="hero-tag">胜诉策略</text>
+        <text class="hero-tag">AI与专业团队</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="content-card">
+    <view class="section-title">例如：婚姻纠纷</view>
+    <textarea
+      class="case-input"
+      maxlength="300"
+      placeholder="因性格不合长期吵架，已分居半年，想离婚"
+      value="{{caseDescription}}"
+      bindinput="onInputChange"
+    />
+
+    <button class="submit-btn" bindtap="submitCase">开始</button>
+
+    <view class="section-title reasons-title">常见案由>>> </view>
+    <view class="reason-list">
+      <view
+        wx:for="{{candidateReasons}}"
+        wx:key="*this"
+        class="reason-item"
+        data-reason="{{item}}"
+        bindtap="fillCandidate"
+      >
+        <text class="reason-text">{{item}}</text>
+        <text class="reason-arrow">›</text>
+      </view>
+    </view>
+  </view>
+</view>

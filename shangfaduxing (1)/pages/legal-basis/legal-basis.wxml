@@ -1,0 +1,58 @@
+<!-- pages/legal-basis/legal-basis.wxml -->
+<view class="legal-basis-page">
+  <!-- 目标结果 -->
+  <view class="target-section">
+    <view class="target-header">
+      <view class="target-icon">🎯</view>
+      <view class="target-info">
+        <view class="target-label">目标争取结果</view>
+        <view class="target-name">{{targetResult.name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 法律依据 -->
+  <view class="law-section">
+    <view class="section-title">
+      <text class="title-icon">📖</text>
+      <text>对应法条</text>
+    </view>
+    <view class="law-list">
+      <view class="law-item" wx:for="{{legalBasis}}" wx:key="id">
+        <view class="law-name">{{item.name}}</view>
+        <view class="law-article">第{{item.article}}条</view>
+        <view class="law-content">{{item.content}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 证成要件 -->
+  <view class="elements-section">
+    <view class="section-title">
+      <text class="title-icon">📋</text>
+      <text>需要证成的法律事实</text>
+    </view>
+    <view class="elements-list">
+      <view class="element-item {{item.proved ? 'proved' : 'unproved'}}" wx:for="{{elements}}" wx:key="id">
+        <view class="element-header">
+          <view class="element-status {{item.proved ? 'status-proved' : 'status-unproved'}}">
+            {{item.proved ? '✓ 已证成' : '○ 未证成'}}
+          </view>
+          <view class="element-name">{{item.name}}</view>
+        </view>
+        <view class="element-desc">{{item.description}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-section">
+    <button class="evidence-btn" bindtap="goToEvidence">
+      <text class="btn-icon">📁</text>
+      <text>进入证据清单</text>
+    </button>
+    <view class="back-btn" bindtap="goBack">
+      <text>‹ 返回其他结果</text>
+    </view>
+  </view>
+</view>

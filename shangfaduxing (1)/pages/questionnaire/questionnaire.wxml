@@ -1,0 +1,123 @@
+<!-- pages/questionnaire/questionnaire.wxml -->
+<view class="questionnaire-page">
+  <!-- 进度条 -->
+  <view class="progress-bar">
+    <view class="progress-fill" style="width: {{progressPercent}}%"></view>
+  </view>
+  <view class="progress-info">
+    <text class="progress-text">第 {{currentGroupIndex + 1}} / {{totalGroups}} 阶段</text>
+    <text class="progress-name">{{currentGroup.icon}} {{currentGroup.groupName}}</text>
+  </view>
+
+  <!-- 阶段说明 -->
+  <view class="group-header">
+    <view class="group-desc">{{currentGroup.groupDesc}}</view>
+  </view>
+
+  <!-- 当本阶段无可见问题时显示提示 -->
+  <view class="empty-group-notice" wx:if="{{!hasVisibleQuestions}}">
+    <view class="empty-icon">✅</view>
+    <view class="empty-title">本阶段不适用于您的案件</view>
+    <view class="empty-desc">根据您前面提供的信息，本阶段的问题与您的案件无关，可以直接跳过。</view>
+    <view class="empty-btn" bindtap="skipGroup">
+      <text>跳过，进入下一阶段 →</text>
+    </view>
+  </view>
+
+  <!-- 问题列表（仅在有可见问题时显示） -->
+  <view wx:if="{{hasVisibleQuestions}}">
+    <block wx:for="{{visibleQuestions}}" wx:key="key">
+      <view class="question-card" wx:if="{{item.visible}}">
+        <!-- 问题序号与必填标记 -->
+        <view class="question-header">
+          <view class="question-index">Q{{item.displayIndex}}</view>
+          <view class="question-required" wx:if="{{item.required}}">必填</view>
+        </view>
+
+        <!-- 问题文本 -->
+        <view class="question-text">{{item.text}}</view>
+
+        <!-- 提示信息 -->
+        <view class="question-hint" wx:if="{{item.hint}}">
+          <text class="hint-icon">💡</text>
+          <text class="hint-text">{{item.hint}}</text>
+        </view>
+
+        <!-- 布尔类型：是/否 -->
+        <view class="answer-area" wx:if="{{item.type === 'boolean'}}">
+          <view class="bool-options">
+            <view
+              class="bool-btn {{answers[item.key] === true ? 'bool-btn-active-yes' : ''}}"
+              bindtap="onBoolAnswer"
+              data-key="{{item.key}}"
+              data-value="{{true}}"
+            >
+              <text class="bool-icon">✓</text>
+              <text>是</text>
+            </view>
+            <view
+              class="bool-btn {{answers[item.key] === false ? 'bool-btn-active-no' : ''}}"
+              bindtap="onBoolAnswer"
+              data-key="{{item.key}}"
+              data-value="{{false}}"
+            >
+              <text class="bool-icon">✗</text>
+              <text>否</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 选择类型 -->
+        <view class="answer-area" wx:if="{{item.type === 'choice'}}">
+          <view class="choice-options">
+            <view
+              wx:for="{{item.options}}"
+              wx:for-item="opt"
+              wx:key="value"
+              class="choice-btn {{answers[item.key] === opt.value ? 'choice-btn-active' : ''}}"
+              bindtap="onChoiceAnswer"
+              data-key="{{item.key}}"
+              data-value="{{opt.value}}"
+            >
+              <view class="choice-radio {{answers[item.key] === opt.value ? 'choice-radio-active' : ''}}">
+                <view class="choice-radio-dot" wx:if="{{answers[item.key] === opt.value}}"></view>
+              </view>
+              <text class="choice-label">{{opt.label}}</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 数值类型 -->
+        <view class="answer-area" wx:if="{{item.type === 'number'}}">
+          <view class="number-input-wrap">
+            <input
+              class="number-input"
+              type="number"
+              placeholder="请输入数字"
+              value="{{answers[item.key]}}"
+              bindinput="onNumberInput"
+              data-key="{{item.key}}"
+            />
+            <text class="number-unit" wx:if="{{item.unit}}">{{item.unit}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 底部占位 -->
+  <view style="height: 200rpx;"></view>
+
+  <!-- 底部导航按钮 -->
+  <view class="nav-buttons">
+    <view class="nav-btn nav-btn-prev {{currentGroupIndex === 0 ? 'nav-btn-disabled' : ''}}" bindtap="prevGroup">
+      <text>← 上一阶段</text>
+    </view>
+    <view wx:if="{{!isLastStage}}" class="nav-btn nav-btn-next" bindtap="nextGroup">
+      <text>下一阶段 →</text>
+    </view>
+    <view wx:else class="nav-btn nav-btn-submit" bindtap="submitAnswers">
+      <text>提交评估 ✓</text>
+    </view>
+  </view>
+</view>

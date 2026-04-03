@@ -1,0 +1,86 @@
+<!-- pages/index/index.wxml -->
+<view class="page-container">
+  <!-- 顶部Banner区域 -->
+  <view class="hero-section">
+    <view class="hero-bg"></view>
+    <view class="hero-content">
+      <view class="hero-icon">⚖️</view>
+      <view class="hero-title">诉前通</view>
+      <view class="hero-subtitle">基于法律规则计算机表达技术的智能裁判辅助小程序</view>
+      <view class="hero-tags">
+        <text class="hero-tag">白盒推理</text>
+        <text class="hero-tag">零AI幻觉</text>
+        <text class="hero-tag">100%可溯源</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="action-section">
+    <button class="start-btn" bindtap="startQuestionnaire">
+      <text class="start-btn-icon">📋</text>
+      <view class="start-btn-text">
+        <text class="start-btn-main">智能法律事实确认与裁判预测</text>
+        <view class="start-btn-sub">开始</view>
+      </view>
+    </button>
+  </view>
+
+  <!-- 系统特点 -->
+  <view class="features-section">
+    <view class="section-title">系统特点</view>
+    <view class="features-grid">
+      <view class="feature-card">
+        <view class="feature-icon">🔍</view>
+        <view class="feature-name">请求权基础搜寻</view>
+        <view class="feature-desc">自动匹配案件事实对应的法律规范，精准锁定请求权基础</view>
+      </view>
+      <view class="feature-card">
+        <view class="feature-icon">⚡</view>
+        <view class="feature-name">司法三段论推理</view>
+        <view class="feature-desc">大前提（法律规范）+ 小前提（案件事实）→ 涵摄得出结论</view>
+      </view>
+      <view class="feature-card">
+        <view class="feature-icon">📖</view>
+        <view class="feature-name">全链路可解释</view>
+        <view class="feature-desc">每一步推导均可追溯至具体法条，裁判过程完全透明</view>
+      </view>
+      <view class="feature-card">
+        <view class="feature-icon">🔒</view>
+        <view class="feature-name">隐私安全保障</view>
+        <view class="feature-desc">所有数据仅在本地运算，不上传任何服务器，安全可信</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 适用法规 -->
+  <view class="law-section">
+    <view class="section-title">适用法律法规</view>
+    <view class="law-list">
+      <view class="law-item">
+        <view class="law-dot"></view>
+        <text>《中华人民共和国民法典》婚姻家庭编</text>
+      </view>
+      <view class="law-item">
+        <view class="law-dot"></view>
+        <text>最高人民法院关于适用《民法典》婚姻家庭编的解释（一）</text>
+      </view>
+      <view class="law-item">
+        <view class="law-dot"></view>
+        <text>最高人民法院关于适用《民法典》婚姻家庭编的解释（二）</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 免责声明 -->
+  <view class="disclaimer">
+    <text class="disclaimer-icon">ℹ️</text>
+    <text class="disclaimer-text">本系统提供的裁判预测仅供参考，不构成法律意见。具体案件请咨询专业律师或向法院咨询。</text>
+  </view>
+
+  <!-- 底部信息 -->
+  <view class="footer">
+    <text class="footer-text">诉前通 · 福州大学法学院</text>
+    <text class="footer-version">v1.0.0</text>
+  </view>
+</view>

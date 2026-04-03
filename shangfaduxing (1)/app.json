@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/case-entry/case-entry",
+    "pages/questionnaire/questionnaire",
+    "pages/result/result",
+    "pages/about/about",
+    "pages/my/my",
+    "pages/other-results/other-results",
+    "pages/legal-basis/legal-basis",
+    "pages/evidence/evidence"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2B5C8A",
+    "navigationBarTitleText": "诉前通",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F7FA"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#2B5C8A",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/kefu.png",
+        "selectedIconPath": "images/kefu-active.png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "关于",
+        "iconPath": "images/about.png",
+        "selectedIconPath": "images/about-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

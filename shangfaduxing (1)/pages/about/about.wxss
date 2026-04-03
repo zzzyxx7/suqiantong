@@ -1,0 +1,121 @@
+/* pages/about/about.wxss */
+.about-page {
+  min-height: 100vh;
+  background: #F5F7FA;
+  padding-bottom: 120rpx;
+}
+
+.about-header {
+  background: linear-gradient(145deg, #1A3A5C, #2B5C8A);
+  padding: 60rpx 40rpx 50rpx;
+  text-align: center;
+}
+
+.about-logo {
+  font-size: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.about-name {
+  font-size: 48rpx;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 8rpx;
+  margin-bottom: 12rpx;
+}
+
+.about-slogan {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+  margin-bottom: 12rpx;
+  padding: 0 20rpx;
+}
+
+.about-version {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.about-section {
+  margin: 24rpx;
+  background: #ffffff;
+  border-radius: 14rpx;
+  padding: 28rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.04);
+}
+
+.about-section-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #1A3A5C;
+  margin-bottom: 16rpx;
+  padding-bottom: 12rpx;
+  border-bottom: 2rpx solid #EEF2F6;
+}
+
+.about-text {
+  font-size: 26rpx;
+  color: #4A6275;
+  line-height: 1.7;
+}
+
+.disclaimer-text {
+  color: #8D6E00;
+  background: #FFFDF5;
+  padding: 16rpx;
+  border-radius: 8rpx;
+}
+
+.sub-text {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #7A8EA0;
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14rpx;
+}
+
+.feature-bullet {
+  color: #2B5C8A;
+  font-size: 18rpx;
+  margin-top: 8rpx;
+  flex-shrink: 0;
+}
+
+.feature-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1A3A5C;
+  margin-bottom: 4rpx;
+}
+
+.feature-detail {
+  font-size: 24rpx;
+  color: #6B7F8E;
+  line-height: 1.5;
+}
+
+.about-footer {
+  text-align: center;
+  padding: 40rpx;
+}
+
+.footer-text {
+  font-size: 22rpx;
+  color: #A0B0C0;
+}

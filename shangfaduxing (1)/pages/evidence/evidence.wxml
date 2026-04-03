@@ -1,0 +1,81 @@
+<!-- pages/evidence/evidence.wxml -->
+<view class="evidence-page">
+  <!-- 提示信息 -->
+  <view class="tips-section">
+    <view class="tips-icon">💡</view>
+    <view class="tips-text">以下是需要补充的证据清单，请逐项准备</view>
+  </view>
+
+  <!-- 未证成事实对应的证据清单 -->
+  <view class="evidence-section">
+    <view class="section-title">需要补充的证据</view>
+    
+    <view class="fact-item" wx:for="{{unprovedFacts}}" wx:key="id">
+      <view class="fact-header">
+        <view class="fact-name">{{item.factName}}</view>
+        <view class="fact-status status-unproved">未证成</view>
+      </view>
+      <view class="evidence-list">
+        <view class="evidence-title">推荐证据类型：</view>
+        <view class="evidence-items">
+          <view class="evidence-tag" wx:for="{{item.evidenceTypes}}" wx:for-item="type" wx:key="*this">
+            {{type}}
+          </view>
+        </view>
+        <view class="evidence-desc">
+          <view class="desc-label">证据说明：</view>
+          <view class="desc-content">{{item.evidenceDesc}}</view>
+        </view>
+        
+        <!-- 是否已有该证据 -->
+        <view class="has-evidence">
+          <view class="has-label">您是否已有此证据？</view>
+          <view class="has-options">
+            <view class="has-option {{item.hasEvidence ? 'selected' : ''}}" data-index="{{index}}" bindtap="toggleHasEvidence" data-value="true">
+              有
+            </view>
+            <view class="has-option {{!item.hasEvidence && item.hasEvidence !== null ? 'selected' : ''}}" data-index="{{index}}" bindtap="toggleHasEvidence" data-value="false">
+              无
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 其他证据输入 -->
+  <view class="other-evidence-section">
+    <view class="section-title">其他证据补充</view>
+    <view class="other-input">
+      <textarea 
+        class="other-textarea" 
+        placeholder="如您有其他证据或补充说明，请在此输入..." 
+        bindinput="onOtherEvidenceInput"
+        value="{{otherEvidence}}"
+      ></textarea>
+    </view>
+  </view>
+
+  <!-- 需要人工帮助 -->
+  <view class="human-help-section">
+    <view class="help-card" bindtap="requestHumanHelp">
+      <view class="help-icon">👤</view>
+      <view class="help-info">
+        <view class="help-title">需要人工帮助？</view>
+        <view class="help-desc">专业律师或志愿者可协助您准备证据</view>
+      </view>
+      <view class="help-arrow">›</view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-section">
+    <button class="export-btn" bindtap="exportEvidenceList">
+      <text class="btn-icon">📥</text>
+      <text>导出证据清单</text>
+    </button>
+    <view class="back-btn" bindtap="goBack">
+      <text>‹ 返回法律依据</text>
+    </view>
+  </view>
+</view>

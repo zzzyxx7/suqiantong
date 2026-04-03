@@ -1,0 +1,199 @@
+/* pages/legal-basis/legal-basis.wxss */
+.legal-basis-page {
+  min-height: 100vh;
+  background: #F5F7FA;
+  padding-bottom: 40rpx;
+}
+
+/* 目标结果 */
+.target-section {
+  background: linear-gradient(135deg, #FF6B35, #FF8F5E);
+  padding: 40rpx 30rpx;
+}
+
+.target-header {
+  display: flex;
+  align-items: flex-start;
+}
+
+.target-icon {
+  font-size: 48rpx;
+  margin-right: 20rpx;
+}
+
+.target-info {
+  flex: 1;
+}
+
+.target-label {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8rpx;
+}
+
+.target-name {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* 通用标题 */
+.section-title {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #1A3A5C;
+  padding: 30rpx 20rpx 20rpx;
+}
+
+.title-icon {
+  font-size: 32rpx;
+  margin-right: 10rpx;
+}
+
+/* 法条区域 */
+.law-section {
+  background: #ffffff;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.law-list {
+  padding: 0 20rpx 20rpx;
+}
+
+.law-item {
+  padding: 20rpx;
+  background: #F8FAFB;
+  border-radius: 12rpx;
+  margin-bottom: 16rpx;
+}
+
+.law-item:last-child {
+  margin-bottom: 0;
+}
+
+.law-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2B5C8A;
+  margin-bottom: 8rpx;
+}
+
+.law-article {
+  display: inline-block;
+  font-size: 22rpx;
+  color: #ffffff;
+  background: #2B5C8A;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  margin-bottom: 12rpx;
+}
+
+.law-content {
+  font-size: 24rpx;
+  color: #4A6275;
+  line-height: 1.7;
+}
+
+/* 证成要件区域 */
+.elements-section {
+  background: #ffffff;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.elements-list {
+  padding: 0 20rpx 20rpx;
+}
+
+.element-item {
+  padding: 20rpx;
+  border-radius: 12rpx;
+  margin-bottom: 16rpx;
+}
+
+.element-item.proved {
+  background: #E8F5E9;
+  border: 1rpx solid #C8E6C9;
+}
+
+.element-item.unproved {
+  background: #FFF3E0;
+  border: 1rpx solid #FFE0B2;
+}
+
+.element-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.element-status {
+  font-size: 22rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  margin-right: 12rpx;
+}
+
+.status-proved {
+  background: #4CAF50;
+  color: #ffffff;
+}
+
+.status-unproved {
+  background: #FF9800;
+  color: #ffffff;
+}
+
+.element-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1A3A5C;
+}
+
+.element-desc {
+  font-size: 24rpx;
+  color: #4A6275;
+  line-height: 1.5;
+}
+
+/* 操作按钮 */
+.action-section {
+  padding: 30rpx 20rpx;
+}
+
+.evidence-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2B5C8A, #3A7BC8);
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 600;
+  padding: 28rpx 0;
+  border-radius: 50rpx;
+  border: none;
+  margin-bottom: 20rpx;
+}
+
+.evidence-btn::after {
+  border: none;
+}
+
+.btn-icon {
+  font-size: 36rpx;
+  margin-right: 10rpx;
+}
+
+.back-btn {
+  text-align: center;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #2B5C8A;
+}

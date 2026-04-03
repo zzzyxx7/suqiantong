@@ -1,0 +1,9 @@
+<!-- pages/welcome/welcome.wxml -->
+<view class="welcome-container">
+  <image class="welcome-bg" src="/images/image1.png" mode="aspectFill"></image>
+  <view class="welcome-content">
+    <view class="welcome-title">诉前通</view>
+    <view class="welcome-subtitle">面向普通群众的智能纠纷解决与证据建议服务</view>
+    <view class="welcome-entry" bindtap="goToIndex">点击进入</view>
+  </view>
+</view>

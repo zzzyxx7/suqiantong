@@ -1,0 +1,52 @@
+<!-- pages/other-results/other-results.wxml -->
+<view class="other-results-page">
+  <!-- 当前预测结果 -->
+  <view class="current-result">
+    <view class="current-title">当前预测结果</view>
+    <view class="current-content">
+      <view class="current-icon">⚖️</view>
+      <view class="current-info">
+        <view class="current-label">判决结果</view>
+        <view class="current-value">{{currentResult.result}}</view>
+        <view class="current-detail">{{currentResult.detail}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 提示信息 -->
+  <view class="tips-section">
+    <view class="tips-icon">💡</view>
+    <view class="tips-text">您可以争取的其他法律结果（基于现行法律规定）</view>
+  </view>
+
+  <!-- 其他可争取结果列表 -->
+  <view class="results-list">
+    <view class="results-title">可争取的其他结果</view>
+    
+    <view class="result-card" wx:for="{{otherResults}}" wx:key="id">
+      <view class="result-header">
+        <view class="result-name">{{item.name}}</view>
+        <view class="difficulty-tag difficulty-{{item.difficulty}}">
+          {{item.difficultyText}}
+        </view>
+      </view>
+      <view class="result-desc">{{item.description}}</view>
+      <view class="result-basis">
+        <view class="basis-label">法律依据：</view>
+        <view class="basis-content">{{item.legalBasis}}</view>
+      </view>
+      <view class="result-actions">
+        <button class="select-btn" bindtap="selectResult" data-id="{{item.id}}">
+          选择此结果
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 返回按钮 -->
+  <view class="back-section">
+    <view class="back-btn" bindtap="goBack">
+      <text>‹ 返回预测结果</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,89 @@
+<!-- pages/about/about.wxml -->
+<view class="about-page">
+  <view class="about-header">
+    <view class="about-logo">⚖️</view>
+    <view class="about-name">诉前通</view>
+    <view class="about-slogan">基于法律规则计算机表达技术的智能裁判辅助小程序</view>
+    <view class="about-version">Version 1.0.0</view>
+  </view>
+
+  <view class="about-section">
+    <view class="about-section-title">项目简介</view>
+    <view class="about-text">"诉前通"是一款面向无法律基础用户的智能裁判辅助微信小程序。小程序采用法律规则计算机表达技术，通过问卷引导式交互模拟律师问答，帮助用户确认案件法律事实、预测判决结果、获取法律依据。所有推理过程100%透明可追溯，同一事实输入必然输出唯一确定结论，彻底消除AI幻觉问题。用户隐私数据全程不上传，安全可信。</view>
+  </view>
+
+  <view class="about-section">
+    <view class="about-section-title">核心功能</view>
+    <view class="feature-list">
+      <view class="feature-item">
+        <text class="feature-bullet">●</text>
+        <view class="feature-content">
+          <text class="feature-label">智能法律事实确认与裁判预测</text>
+          <text class="feature-detail">依据关联分析法的结构化审查逻辑，通过问卷模拟专业律师问答，自动完成案由确定、法律事实确认、法条适用、裁判推理全流程</text>
+        </view>
+      </view>
+      <view class="feature-item">
+        <text class="feature-bullet">●</text>
+        <view class="feature-content">
+          <text class="feature-label">推理过程全链路展示</text>
+          <text class="feature-detail">清晰呈现哪些法律事实、适用了哪条法规、如何推出该判决结论，使用户理解"法官会怎么判"及"为什么这么判"</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="about-section">
+    <view class="about-section-title">技术特点</view>
+    <view class="feature-list">
+      <view class="feature-item">
+        <text class="feature-bullet">●</text>
+        <view class="feature-content">
+          <text class="feature-label">确定性规则推理引擎</text>
+          <text class="feature-detail">区别于生成式大语言模型，所有逻辑运算基于固定的结构化法律规则节点，同一事实输入必然输出唯一确定结论</text>
+        </view>
+      </view>
+      <view class="feature-item">
+        <text class="feature-bullet">●</text>
+        <view class="feature-content">
+          <text class="feature-label">请求权基础分析法</text>
+          <text class="feature-detail">以请求权基础为逻辑主线，构建"请求权—规范基础—构成要件"三层结构化规则图谱</text>
+        </view>
+      </view>
+      <view class="feature-item">
+        <text class="feature-bullet">●</text>
+        <view class="feature-content">
+          <text class="feature-label">关联分析法</text>
+          <text class="feature-detail">借鉴德国司法实务中法官审理案件的核心方法，通过问卷引导用户按"主张—事实—证据"层次逐步提供案件信息</text>
+        </view>
+      </view>
+      <view class="feature-item">
+        <text class="feature-bullet">●</text>
+        <view class="feature-content">
+          <text class="feature-label">隐私安全保障</text>
+          <text class="feature-detail">所有案件事实的采集与运算均在小程序端完成闭环，无需上传用户隐私数据至第三方服务器</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="about-section">
+    <view class="about-section-title">适用范围</view>
+    <view class="about-text">当前版本已实现离婚房产分割方向的功能落地，覆盖《中华人民共和国民法典》婚姻家庭编及最高人民法院相关司法解释的核心条文，支持婚前购房、婚后购房、父母出资购房、房产赠与、婚前按揭房、公房转化、房改房等多种常见情形的裁判预测。后续将逐步拓展至劳动争议、交通事故责任认定、民间借贷等高频民事纠纷领域。</view>
+  </view>
+
+  <view class="about-section">
+    <view class="about-section-title">免责声明</view>
+    <view class="about-text disclaimer-text">本系统提供的裁判预测仅供法律学习与参考使用，不构成法律意见。实际案件判决受法官自由裁量权、证据审查、地方司法实践等多种因素影响。建议您咨询专业律师或向法院咨询。</view>
+  </view>
+
+  <view class="about-section">
+    <view class="about-section-title">团队信息</view>
+    <view class="about-text">诉前通团队 · 福州大学法学院</view>
+    <view class="about-text sub-text">2025-2026学年"挑战杯"福州大学大学生创业计划竞赛参赛作品</view>
+    <view class="about-text sub-text">指导教师：贾丽萍教授（福州大学法学院副院长）</view>
+  </view>
+
+  <view class="about-footer">
+    <text class="footer-text">© 2025 诉前通团队 · 福州大学法学院</text>
+  </view>
+</view>

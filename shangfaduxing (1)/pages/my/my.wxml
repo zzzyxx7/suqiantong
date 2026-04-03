@@ -1,0 +1,147 @@
+<!-- pages/my/my.wxml -->
+<view class="my-page">
+  <!-- Tab 切换 -->
+  <view class="tab-container">
+    <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" data-index="0" bindtap="switchTab">
+      <text>人工法律援助</text>
+    </view>
+    <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" data-index="1" bindtap="switchTab">
+      <text>我的案件</text>
+    </view>
+  </view>
+
+  <!-- Tab A: 人工法律援助 -->
+  <view class="tab-content" wx:if="{{currentTab === 0}}">
+    <view class="service-intro">
+      <view class="intro-icon">📋</view>
+      <view class="intro-title">人工法律援助服务</view>
+      <view class="intro-desc">复杂案件需要专业人工介入？我们提供志愿者对接服务，为您提供一对一法律咨询指导。</view>
+    </view>
+
+    <!-- 服务流程 -->
+    <view class="process-section">
+      <view class="section-title">服务流程</view>
+      <view class="process-list">
+        <view class="process-item">
+          <view class="process-num">1</view>
+          <view class="process-content">
+            <view class="process-title">提交咨询工单</view>
+            <view class="process-desc">填写基本案情信息，提交法律援助申请</view>
+          </view>
+        </view>
+        <view class="process-item">
+          <view class="process-num">2</view>
+          <view class="process-content">
+            <view class="process-title">上传补充案情</view>
+            <view class="process-desc">可上传图片、文档等补充材料</view>
+          </view>
+        </view>
+        <view class="process-item">
+          <view class="process-num">3</view>
+          <view class="process-content">
+            <view class="process-title">选择咨询问题</view>
+            <view class="process-desc">选择您希望咨询的具体法律问题</view>
+          </view>
+        </view>
+        <view class="process-item">
+          <view class="process-num">4</view>
+          <view class="process-content">
+            <view class="process-title">等待回访/预约</view>
+            <view class="process-desc">志愿者接单后主动联系您</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 提交工单按钮 -->
+    <view class="action-btn-group">
+      <button class="submit-btn" bindtap="submitWorkOrder">
+        <text class="btn-icon">📝</text>
+        <text>提交咨询工单</text>
+      </button>
+    </view>
+
+    <!-- 咨询状态 -->
+    <view class="status-section">
+      <view class="section-title">我的咨询状态</view>
+      <view class="status-list">
+        <view class="status-item" wx:if="{{workOrders.length === 0}}">
+          <view class="empty-status">暂无咨询工单</view>
+        </view>
+        <view class="status-item" wx:for="{{workOrders}}" wx:key="id">
+          <view class="status-header">
+            <text class="status-title">{{item.title}}</text>
+            <text class="status-tag {{item.statusClass}}">{{item.statusText}}</text>
+          </view>
+          <view class="status-desc">{{item.desc}}</view>
+          <view class="status-time">{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Tab B: 我的案件 -->
+  <view class="tab-content" wx:if="{{currentTab === 1}}">
+    <!-- 历史案件列表 -->
+    <view class="cases-section">
+      <view class="section-title">历史咨询记录</view>
+      <view class="cases-list">
+        <view class="case-item" wx:if="{{cases.length === 0}}">
+          <view class="empty-case">暂无案件记录</view>
+        </view>
+        <view class="case-item" wx:for="{{cases}}" wx:key="id" bindtap="viewCaseDetail" data-id="{{item.id}}">
+          <view class="case-header">
+            <text class="case-name">{{item.name}}</text>
+            <text class="case-status {{item.statusClass}}">{{item.statusText}}</text>
+          </view>
+          <view class="case-info">
+            <text class="case-type">案件类型：{{item.type}}</text>
+            <text class="case-date">{{item.date}}</text>
+          </view>
+          <view class="case-actions">
+            <view class="action-link" wx:if="{{item.hasPrediction}}">
+              <text class="link-icon">📊</text>
+              <text>裁判预测</text>
+            </view>
+            <view class="action-link" wx:if="{{item.hasEvidence}}">
+              <text class="link-icon">📁</text>
+              <text>证据清单</text>
+            </view>
+            <view class="action-link" wx:if="{{item.hasQuestionnaire}}">
+              <text class="link-icon">📋</text>
+              <text>继续问卷</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 个人设置 -->
+    <view class="settings-section">
+      <view class="section-title">个人设置</view>
+      <view class="settings-list">
+        <view class="settings-item" bindtap="editContact">
+          <view class="settings-left">
+            <text class="settings-icon">📱</text>
+            <text class="settings-label">联系方式维护</text>
+          </view>
+          <view class="settings-arrow">›</view>
+        </view>
+        <view class="settings-item" bindtap="privacySettings">
+          <view class="settings-left">
+            <text class="settings-icon">🔒</text>
+            <text class="settings-label">隐私授权设置</text>
+          </view>
+          <view class="settings-arrow">›</view>
+        </view>
+        <view class="settings-item" bindtap="viewAgreement">
+          <view class="settings-left">
+            <text class="settings-icon">📄</text>
+            <text class="settings-label">用户协议与免责声明</text>
+          </view>
+          <view class="settings-arrow">›</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
